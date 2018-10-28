@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: backend/drf/
+    volumes:
+      - "/home/triklozoid/src/library/backend/drf:/app"
+    ports:
+     - "8000:8000"
+    stdin_open: true
+    tty: true
+  db:
+    image: "postgres:11-alpine"
