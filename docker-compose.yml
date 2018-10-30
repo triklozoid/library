@@ -5,8 +5,10 @@ services:
     volumes:
       - "/home/triklozoid/src/library/backend/drf:/app"
     ports:
-     - "8000:8000"
+     - "80"
     stdin_open: true
     tty: true
+    entrypoint: uwsgi --http :80 --module library.wsgi
+    hostname: library.local
   db:
     image: "postgres:11-alpine"
